@@ -11,7 +11,7 @@ colorspace CAM02-UCS by drawing a 3d path in blender.
    blender 2.77a) and install the
    `colorspacious` module with `pip install colorspacious`.
    This is straightforward with anaconda python: first make a virtual
-   environment with `conda create -n blender python=3.5. 
+   environment with `conda create -n blender python=3.5`. 
    Then do `source activate blender` to activate the environment and install
    colorspacious with `pip install colorspacious`
 
