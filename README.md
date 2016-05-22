@@ -1,4 +1,4 @@
-# blender colormmap builder
+# blender colormap builder
 
 
 ## Overview
