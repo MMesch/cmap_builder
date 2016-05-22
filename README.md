@@ -15,7 +15,7 @@ colorspace CAM02-UCS by drawing a 3d path in blender.
    Then do `source activate blender` to activate the environment and install
    colorspacious with `pip install colorspacious`
 
-## Instruction, generate Gamut
+## Instruction, generate Gamut surface mesh
 1. open the project `colormaps.blend` with blender.
 2. in the python script `Add_Gamut` (can be selected on in the footline
    of the text window on the right), change the path to point to your
