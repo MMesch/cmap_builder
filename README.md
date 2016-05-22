@@ -1,9 +1,9 @@
 # blender colormap builder
 
-
 ## Overview
 This is a blender script that allows to generate colormaps in the uniform
-colorspace CAM02-UCS by drawing a 3d path in blender.
+colorspace CAM02-UCS (thank you colorspacious) by drawing a 3d spline path
+or a 3d spline surface in blender.
 
 ## Installation
 1. clone the git repository somewhere on your system: `git clone ...`
@@ -22,7 +22,7 @@ colorspace CAM02-UCS by drawing a 3d path in blender.
    colorspacious module. 
    E.g.: `sys.path.append('home/myname/anaconda2/envs/blender/lib/python3.5/site-packages'')`
 3. run the script with `alt + p` when the text window is active or click
-   the `run script` button in the footline of the text editor window.
+   the `run script` button in the footline of the text editor window. A new Gamut surface is generated.
 
 ## Instructions, 1d colormap
 1. open the project `colormaps.blend` with blender.
