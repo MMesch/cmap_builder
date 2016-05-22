@@ -45,7 +45,10 @@ or a 3d spline surface in blender.
    colorspacious module. E.g.: `sys.path.append('home/myname/anaconda2/envs/blender/lib/python3.5/site-packages'')`
 3. you can now edit the control points of the nurbs surface in the 3d window
    (make sure that your window is in `edit mode` to do this), or you can add
-   a new curve in `object mode`. If you are done positioning your curve,
+   a new nurbs surface in `object mode`. The u and v resolution parameters
+   control the axial and angular sampling of the cylinder and can be reduced
+   while editing. The spline order controls the smoothness of the surface.
+4. If you are done positioning the surface,
    make sure that it is selected and run the python script by pushing on `run script`
    or pressing `alt + p` when the script window is active. Be careful, the script
    generates a duplicate of the nurbs surface that you can delete after the
