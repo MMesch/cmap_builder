@@ -37,7 +37,7 @@ def main():
     for path_cmap, (col1, col2) in zip(paths_cmap, axes):
         dirname, fname = os.path.split(path_cmap)
         cmap = np.load(path_cmap).transpose((1, 0, 2))
-        ihalf = int(cmap.shape[0] * 0.5)
+        #ihalf = int(cmap.shape[0] * 0.5)
         #cmap = cmap[::-1]
         #cmap = cmap[:ihalf]
         col1.set(title='{}'.format(fname))
