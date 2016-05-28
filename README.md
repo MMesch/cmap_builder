@@ -60,5 +60,5 @@ or a 3d spline surface in blender.
 ![blender interface path](blender_example.png)
 
 
-## Other 2d colormaps (not designed in blender):
+## included 2d colormaps:
 ![2d colormaps](comparison.png)
