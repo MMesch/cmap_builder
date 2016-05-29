@@ -60,5 +60,26 @@ or a 3d spline surface in blender.
 ![blender interface path](blender_example.png)
 
 
-## included 2d colormaps:
+## included colormaps
+Colorsurfaces need to make a few compromises To use the maximum extend of the
+Gamut colorspace while at the same time remaining as smooth as possible.
+Especially at convergent points around black (zero lightness) and white (max
+lightness), the topology of the color surfaces has to be as smooth as possible,
+meaning the lightness of different hues should vary as little as possible. This
+ensures that maximum and minimums in displayed functions remain round and don't
+become star-shaped or shifted towards darker colors like blue and red. At 0.5,
+the color surfaces can vary a in lightness to make use of strongy saturated
+colors.
+
+### rendering:
+Wheel2d is a 2d colormap that goes from black to white with maximum saturated
+colors around 0.5.
+![wheel2d](wheel2d.png)
+
+Darkwheel2d is a 2d colormap that goes from black to light and saturated colors.
+Exclusion of white allows for better coverage of the saturated corners of the
+Gamut cube.
+![darkwheel2d](darkwheel2d.png)
+
+### comparison with:
 ![2d colormaps](comparison.png)
