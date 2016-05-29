@@ -81,4 +81,5 @@ Gamut cube.
 ![darkwheel2d](darkwheel2d.png)
 
 ### comparison with:
-![2d colormaps](comparison.png)
+![complex sine](comparison.png)
+![poles and zeros function](poles_and_zeros.png)
