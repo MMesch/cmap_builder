@@ -14,38 +14,35 @@ or a 3d spline surface in blender.
    environment with `conda create -n blender python=3.5`. 
    Then do `source activate blender` to activate the environment and install
    colorspacious with `pip install colorspacious`
-
-## Instruction, generate Gamut surface mesh
 1. open the project `colormaps.blend` with blender.
+
+## Instructions, Gamut surface sript
 2. in the python script `Add_Gamut` (can be selected on in the footline
    of the text window on the right), change the path to point to your
    colorspacious module. 
    E.g.: `sys.path.append('home/myname/anaconda2/envs/blender/lib/python3.5/site-packages'')`
 3. run the script with `alt + p` when the text window is active or click
-   the `run script` button in the footline of the text editor window. A new Gamut surface is generated.
+   the `run script` button in the footline of the text editor window.
+   A new Gamut surface is generated. You can modify the resolution of the Gamut
+   cube in the script.
 
-## Instructions, 1d colormap
-1. open the project `colormaps.blend` with blender.
+## Instructions, path to colormap script
 2. in the python script `path_to_colormap` (can be selected on in the footline
    of the text window on the right), change the path to point to your
    colorspacious module. 
    E.g.: `sys.path.append('home/myname/anaconda2/envs/blender/lib/python3.5/site-packages'')`
-3. you can now edit the control points of the bezier curves in the 3d window.
-   Make sure that your window is in `edit mode` to do this. You might want to
-   delete the surface and bezier curves that you don't need to make some space.
+3. you can now add and edit the control points of bezier curves in the 3d window.
    If you are done positioning your curve,
    make sure that it is selected and run the python script by pushing on `run script`
    or pressing `alt + p` when the script window is active. The colormap on
    the bottom left should now update.
 
-## Instructions, 2d colormap
+## Instructions, nurbs surface to colormap script
 
-1. open the existing project `colormaps.blend` with blender.
 2. in the python script `nurbs_to_colormap`, change the path to point to your
    colorspacious module. E.g.: `sys.path.append('home/myname/anaconda2/envs/blender/lib/python3.5/site-packages'')`
-3. you can now edit the control points of the nurbs surface in the 3d window
-   (make sure that your window is in `edit mode` to do this), or you can add
-   a new nurbs surface in `object mode`. The u and v resolution parameters
+3. you can now add and edit the control points of nurbs surfaces in the 3d window. 
+   The u and v resolution parameters
    control the axial and angular sampling of the cylinder and can be reduced
    while editing. The spline order controls the smoothness of the surface.
 4. If you are done positioning the surface,
@@ -53,6 +50,8 @@ or a 3d spline surface in blender.
    or pressing `alt + p` when the script window is active. Be careful, the script
    generates a duplicate of the nurbs surface that you can delete after the
    colormap has been generated. The colormap on the bottom left should now update.
+   There is a parameter in the script to transpose the colormaps and a commented
+   line to save it as a npy file.
 
 
 ## Gallery:
