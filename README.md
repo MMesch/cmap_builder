@@ -14,7 +14,20 @@ or a 3d spline surface in blender.
    environment with `conda create -n blender python=3.5`. 
    Then do `source activate blender` to activate the environment and install
    colorspacious with `pip install colorspacious`
+
+## The `colormap.blend` project file
 1. open the project `colormaps.blend` with blender.
+2. click on the different layers (little boxes at the bottom right of the 3d
+   view windows) and check out the objects that are within each by doing a right
+   click on the objects. The layers are organized like this:
+ * layer 1: contains a precomputed Gamut surface and can be used to position
+   a surface or path in the Gamut to compute the colormap
+ * layer 2: this is the render layer. Computed and colored meshes can be put
+   here for advanced visualizations
+ * layer 3: this is the dump layer for lots of different spline surfaces and
+   paths that are ready to be taken to layer 1 for colormap computation
+ * layer 4: this is the dump layer for modified, and colored non-spline 
+   surfaces or paths.
 
 ## Instructions, Gamut surface sript
 2. in the python script `Add_Gamut` (can be selected on in the footline
