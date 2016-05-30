@@ -13,8 +13,8 @@ from scipy.ndimage.interpolation import map_coordinates
 
 def main():
     # some parameters
-    npts_real = 200
-    npts_imag = 100
+    npts_real = 400
+    npts_imag = 400
     realaxis = np.linspace(-3, 3, npts_real)
     imagaxis = np.linspace(-3.,3., npts_imag)
     regrid, imgrid = np.meshgrid(realaxis, imagaxis)
@@ -22,8 +22,13 @@ def main():
     # put complex magnitude and argument in 2d array
     zgrid = regrid + 1j * imgrid
     complex_sine = np.sin(regrid + 1j * imgrid)
+    # no branch cut:
     complex_function = (zgrid ** 2 - 1.) * (zgrid - 2 - 1j) ** 2 /\
                        (zgrid ** 2 + 2. + 2.j)
+    # with branch cut:
+    # complex_function = (zgrid ** 2 - 1.) * (zgrid - 2 - 1j) ** 2 \
+    #                   / np.arcsin(zgrid ** 2 + 2. + 2.j)
+
     data = np.empty((2, npts_imag, npts_real))
     data[0] = np.log(np.abs(complex_function))
     data[1] = np.angle(complex_function)
