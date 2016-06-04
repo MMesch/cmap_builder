@@ -106,8 +106,6 @@ def cmap_file2d(data, cmap, roll_x=0.):
     #data2[1] = (data2[1] - roll_x) % 1.0
     data2[0] *= cmap.shape[0]
     data2[1] *= cmap.shape[1]
-    plt.figure()
-    plt.imshow(cmap)
     data2 = data2.reshape(data_dim, nrows, ncols)
     r = map_coordinates(cmap[:, :, 0], data2, order=1, mode='nearest')
     g = map_coordinates(cmap[:, :, 1], data2, order=1, mode='nearest')

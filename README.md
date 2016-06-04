@@ -93,6 +93,11 @@ Exclusion of white allows for better coverage of the saturated corners of the
 Gamut cube.
 ![darkwheel2d](darkwheel2d.png)
 
+Brightwheel2d the equivalent of Darkwheel starting from white instead of black.
+I have chosen slightly harder transitions between the six colors in this
+colormap.
+![brightwheel2d](brightwheel2d.png)
+
 ### comparison with:
 ![complex sine](comparison.png)
 ![poles and zeros function](poles_and_zeros.png)
