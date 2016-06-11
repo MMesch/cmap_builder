@@ -98,6 +98,11 @@ I have chosen slightly harder transitions between the six colors in this
 colormap.
 ![brightwheel2d](brightwheel2d.png)
 
+Smoothwheel2d is the equivalent of wheel2d with even lightness and even 
+angular variations. The colors are smoother and less saturated but lightness
+is much easier to identify because we don't need to adapt lightness to the
+hue value ![smoothwheel2d](smoothwheel2d.png)
+
 ### comparison with:
 ![complex sine](comparison.png)
 ![poles and zeros function](poles_and_zeros.png)
