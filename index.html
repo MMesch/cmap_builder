@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Blender Colormap Builder by MMesch</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Blender Colormap Builder</h1>
+      <h2 class="project-tagline">three blender scripts that allow to design 1d and 2d colormaps within a colorspace gamut</h2>
+      <a href="https://github.com/MMesch/cmap_builder" class="btn">View on GitHub</a>
+      <a href="https://github.com/MMesch/cmap_builder/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/MMesch/cmap_builder/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="blender-colormap-builder" class="anchor" href="#blender-colormap-builder" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>blender colormap builder</h1>
+
+<h2>
+<a id="overview" class="anchor" href="#overview" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Overview</h2>
+
+<p>This is a blender script that allows to generate colormaps in the uniform
+colorspace CAM02-UCS (thank you colorspacious) by drawing a 3d spline path
+or a 3d spline surface in blender.</p>
+
+<h2>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installation</h2>
+
+<ol>
+<li>clone the git repository somewhere on your system: <code>git clone ...</code>
+</li>
+<li>install a python version that is compatible with blender (e.g. python 3.5.1 for
+blender 2.77a) and install the
+<code>colorspacious</code> module with <code>pip install colorspacious</code>.
+This is straightforward with anaconda python: first make a virtual
+environment with <code>conda create -n blender python=3.5</code>. 
+Then do <code>source activate blender</code> to activate the environment and install
+colorspacious with <code>pip install colorspacious</code>
+</li>
+</ol>
+
+<h2>
+<a id="the-colormapblend-project-file" class="anchor" href="#the-colormapblend-project-file" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>The <code>colormap.blend</code> project file</h2>
+
+<ol>
+<li>open the project <code>colormaps.blend</code> with blender.</li>
+<li>click on the different layers (little boxes at the bottom right of the 3d
+view windows) and check out the objects that are within each by doing a right
+click on the objects. The layers are organized like this:
+
+<ul>
+<li>layer 1: contains a precomputed Gamut surface and can be used to position
+a surface or path in the Gamut to compute the colormap</li>
+<li>layer 2: this is the render layer. Computed and colored meshes can be put
+here for advanced visualizations</li>
+<li>layer 3: this is the dump layer for lots of different spline surfaces and
+paths that are ready to be taken to layer 1 for colormap computation</li>
+<li>layer 4: this is the dump layer for modified, and colored non-spline 
+surfaces or paths.</li>
+</ul>
+</li>
+</ol>
+
+<h2>
+<a id="instructions-gamut-surface-sript" class="anchor" href="#instructions-gamut-surface-sript" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Instructions, Gamut surface sript</h2>
+
+<ol>
+<li>in the python script <code>Add_Gamut</code> (can be selected on in the footline
+of the text window on the right), change the path to point to your
+colorspacious module. 
+E.g.: <code>sys.path.append('home/myname/anaconda2/envs/blender/lib/python3.5/site-packages'')</code>
+</li>
+<li>run the script with <code>alt + p</code> when the text window is active or click
+the <code>run script</code> button in the footline of the text editor window.
+A new Gamut surface is generated. You can modify the resolution of the Gamut
+cube in the script.</li>
+</ol>
+
+<h2>
+<a id="instructions-path-to-colormap-script" class="anchor" href="#instructions-path-to-colormap-script" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Instructions, path to colormap script</h2>
+
+<ol>
+<li>in the python script <code>path_to_colormap</code> (can be selected on in the footline
+of the text window on the right), change the path to point to your
+colorspacious module. 
+E.g.: <code>sys.path.append('home/myname/anaconda2/envs/blender/lib/python3.5/site-packages'')</code>
+</li>
+<li>you can now add and edit the control points of bezier curves in the 3d window.
+If you are done positioning your curve,
+make sure that it is selected and run the python script by pushing on <code>run script</code>
+or pressing <code>alt + p</code> when the script window is active. The colormap on
+the bottom left should now update.</li>
+</ol>
+
+<h2>
+<a id="instructions-nurbs-surface-to-colormap-script" class="anchor" href="#instructions-nurbs-surface-to-colormap-script" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Instructions, nurbs surface to colormap script</h2>
+
+<ol>
+<li>in the python script <code>nurbs_to_colormap</code>, change the path to point to your
+colorspacious module. E.g.: <code>sys.path.append('home/myname/anaconda2/envs/blender/lib/python3.5/site-packages'')</code>
+</li>
+<li>you can now add and edit the control points of nurbs surfaces in the 3d window. 
+The u and v resolution parameters
+control the axial and angular sampling of the cylinder and can be reduced
+while editing. The spline order controls the smoothness of the surface.</li>
+<li>If you are done positioning the surface,
+make sure that it is selected and run the python script by pushing on <code>run script</code>
+or pressing <code>alt + p</code> when the script window is active. Be careful, the script
+generates a duplicate of the nurbs surface that you can delete after the
+colormap has been generated. The colormap on the bottom left should now update.
+There is a parameter in the script to transpose the colormaps and a commented
+line to save it as a npy file.</li>
+</ol>
+
+<h2>
+<a id="gallery" class="anchor" href="#gallery" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Gallery:</h2>
+
+<p><img src="blender_example2.png" alt="blender interface surface">
+<img src="blender_example.png" alt="blender interface path"></p>
+
+<h2>
+<a id="included-colormaps" class="anchor" href="#included-colormaps" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>included colormaps</h2>
+
+<p>Colorsurfaces need to make a few compromises To use the maximum extend of the
+Gamut colorspace while at the same time remaining as smooth as possible.
+Especially at convergent points around black (zero lightness) and white (max
+lightness), the topology of the color surfaces has to be as smooth as possible,
+meaning the lightness of different hues should vary as little as possible. This
+ensures that maximum and minimums in displayed functions remain round and don't
+become star-shaped or shifted towards darker colors like blue and red. At 0.5,
+the color surfaces can vary a in lightness to make use of strongy saturated
+colors.</p>
+
+<h3>
+<a id="rendering" class="anchor" href="#rendering" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>rendering:</h3>
+
+<p>Wheel2d is a 2d colormap that goes from black to white with maximum saturated
+colors around 0.5.
+<img src="wheel2d.png" alt="wheel2d"></p>
+
+<p>Darkwheel2d is a 2d colormap that goes from black to light and saturated colors.
+Exclusion of white allows for better coverage of the saturated corners of the
+Gamut cube.
+<img src="darkwheel2d.png" alt="darkwheel2d"></p>
+
+<p>Brightwheel2d the equivalent of Darkwheel starting from white instead of black.
+I have chosen slightly harder transitions between the six colors in this
+colormap.
+<img src="brightwheel2d.png" alt="brightwheel2d"></p>
+
+<p>Smoothwheel2d is the equivalent of wheel2d with even lightness and even 
+angular variations. The colors are smoother and less saturated but lightness
+is much easier to identify because we don't need to adapt lightness to the
+hue value <img src="smoothwheel2d.png" alt="smoothwheel2d"></p>
+
+<h3>
+<a id="comparison-with" class="anchor" href="#comparison-with" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>comparison with:</h3>
+
+<p><img src="comparison.png" alt="complex sine">
+<img src="poles_and_zeros.png" alt="poles and zeros function"></p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/MMesch/cmap_builder">Blender Colormap Builder</a> is maintained by <a href="https://github.com/MMesch">MMesch</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
