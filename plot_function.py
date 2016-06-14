@@ -42,7 +42,7 @@ def main():
 
     paths_cmap = glob.glob('colormaps/*.npy')
     ncmaps = len(paths_cmap) + 1  # one extra cmap for hsv
-    fig, axes = plt.subplots(ncmaps, 2, figsize=(ncmaps * 3, 10))
+    fig, axes = plt.subplots(ncmaps, 2, figsize=(10, ncmaps * 3))
     fig.suptitle(r'colormap comparison using complex function: $(z^2-1)(z -2-i)^2/(z^2+2+2i)$')
     for path_cmap, (col1, col2) in zip(paths_cmap, axes):
         dirname, fname = os.path.split(path_cmap)

@@ -84,6 +84,9 @@ the color surfaces can vary a in lightness to make use of strongy saturated
 colors.
 
 ### rendering:
+This is a 1d colormap that winds through 3d colorspace
+![1d_colormap](1d_colormap.png)
+
 Wheel2d is a 2d colormap that goes from black to white with maximum saturated
 colors around 0.5.
 ![wheel2d](wheel2d.png)

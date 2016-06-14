@@ -33,7 +33,7 @@ def main():
 
     paths_cmap = glob.glob('colormaps/*.npy')
     ncmaps = len(paths_cmap) + 1  # one extra cmap for hsv
-    fig, axes = plt.subplots(ncmaps, 2, figsize=(ncmaps * 3, 10))
+    fig, axes = plt.subplots(ncmaps, 2, figsize=(10, ncmaps * 3))
     for path_cmap, (col1, col2) in zip(paths_cmap, axes):
         dirname, fname = os.path.split(path_cmap)
         cmap = np.load(path_cmap).transpose((1, 0, 2))
