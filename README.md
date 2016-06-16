@@ -22,6 +22,6 @@ Blender designed colormaps are much smoother than the classical HSV colormap
 
 ![poles and zeros function](images/poles_and_zeros.png)
 
-Click [here](gallery.md) to see more colormaps in 3d colorspace.
+Click [here](doc/gallery.md) to see more colormaps in 3d colorspace.
 
-Click [here](install.md) to see how to install and use the script.
+Click [here](doc/install.md) to see how to install and use the script.
