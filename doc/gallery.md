@@ -4,7 +4,7 @@ colorspace is uniform, even movement along the path generates a smoothly
 varying colormap.
 
 This is an example of a 1d colormap that winds through 3d colorspace
-![1d_colormap](images/1d_colormap.png)
+![1d_colormap](../images/1d_colormap.png)
 
 For 2d colormaps, we need to put a surface instead of a path into colorspace.
 Optimal colorsurfaces need to make a few compromises to use the maximum extend
@@ -20,23 +20,23 @@ use of strongy saturated colors.
 
 Wheel2d is a 2d colormap that goes from black to white with maximum saturated
 colors around 0.5.
-![wheel2d](images/wheel2d.png)
+![wheel2d](../images/wheel2d.png)
 
 Darkwheel2d is a 2d colormap that goes from black to light and saturated colors.
 Exclusion of white allows for better coverage of the saturated corners of the
 Gamut cube.
-![darkwheel2d](images/darkwheel2d.png)
+![darkwheel2d](../images/darkwheel2d.png)
 
 Brightwheel2d the equivalent of Darkwheel starting from white instead of black.
 I have chosen slightly harder transitions between the six colors in this
 colormap.
-![brightwheel2d](images/brightwheel2d.png)
+![brightwheel2d](../images/brightwheel2d.png)
 
 Smoothwheel2d is the equivalent of wheel2d with even lightness and even 
 angular variations. The colors are smoother and less saturated but lightness
 is much easier to identify because we don't need to adapt lightness to the
-hue value ![smoothwheel2d](images/smoothwheel2d.png)
+hue value ![smoothwheel2d](../images/smoothwheel2d.png)
 
 ## comparison with:
-![complex sine](images/comparison.png)
-![poles and zeros function](images/poles_and_zeros.png)
+![complex sine](../images/comparison.png)
+![poles and zeros function](../images/poles_and_zeros.png)

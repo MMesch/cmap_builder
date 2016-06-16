@@ -12,7 +12,7 @@ a signals energy and frequency.
 
 The most common colormap used for this purpose are even variations in HSV/HSL
 colorspace. Such a colormap is unfortunately not very smooth visually. The
-following image shows a colormap that has been designed in blender. It 
+following image shows a colormap that has been designed in blender. It
 starts at white and then goes into the six corners of the CAM02-UCS Gamut.
 
 ![brightwheel2d](images/brightwheel2d.png)

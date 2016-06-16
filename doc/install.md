@@ -61,5 +61,5 @@
 
 
 ## Interface example:
-![blender interface surface](images/blender_example2.png)
-![blender interface path](images/blender_example.png)
+![blender interface surface](../images/blender_example2.png)
+![blender interface path](../images/blender_example.png)
