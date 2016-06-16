@@ -46,7 +46,26 @@ def main():
     fig.suptitle('colormap comparison using complex polynomial:\n'
                  r'$f(z) = \frac{(z^2-2)(z-(1+i))^2}{(z+2i)(z^2-(5+2i))}$',
                  fontsize=16)
-    for path_cmap, (col1, col2) in zip(paths_cmap, axes):
+
+    # hsv colormap
+    ax20, ax21 = axes[0, 0], axes[0, 1]
+    ax20.set(ylabel='{}\nlog(|f|)'.format('HSV colormap'),
+             xlabel='arg(f)')
+    ax21.set(ylabel='imaginary axis',
+             xlabel='real axis')
+
+    xx, yy = np.meshgrid(np.linspace(0., 1., 100), np.linspace(0., 1., 100))
+    cmap_grid = np.array([yy, xx])
+    cmap = cmap_multidim_hsv(cmap_grid)
+    cmap = np.roll(cmap, 48, axis=1)
+    rgb_colors = cmap_file2d(data, cmap)
+
+    ax20.imshow(cmap, aspect='auto', extent=(-np.pi, np.pi, -drange, drange),
+                origin='lower')
+    ax21.imshow(rgb_colors, aspect='auto', extent=(-4, 4, -3, 3),
+                origin='lower')
+
+    for path_cmap, (col1, col2) in zip(paths_cmap, axes[1:]):
         dirname, fname = os.path.split(path_cmap)
         cmap = np.load(path_cmap).transpose((1, 0, 2))
         # ihalf = int(cmap.shape[0] * 0.5)
@@ -63,24 +82,6 @@ def main():
                     extent=(-np.pi, np.pi, -drange, drange))
         col2.imshow(rgb_colors, aspect='auto', extent=(-4, 4, -3, 3),
                     origin='lower')
-
-    # hsv colormap
-    ax20, ax21 = axes[-1, 0], axes[-1, 1]
-    ax20.set(ylabel='{}\nlog(|f|)'.format('HSV colormap'),
-             xlabel='arg(f)')
-    ax21.set(ylabel='imaginary axis',
-             xlabel='real axis')
-
-    xx, yy = np.meshgrid(np.linspace(0., 1., 100), np.linspace(0., 1., 100))
-    cmap_grid = np.array([yy, xx])
-    cmap = cmap_multidim_hsv(cmap_grid)
-    cmap = np.roll(cmap, 48, axis=1)
-    rgb_colors = cmap_file2d(data, cmap)
-
-    ax20.imshow(cmap, aspect='auto', extent=(-np.pi, np.pi, -drange, drange),
-                origin='lower')
-    ax21.imshow(rgb_colors, aspect='auto', extent=(-4, 4, -3, 3),
-                origin='lower')
 
     fig.tight_layout(pad=0.5)
     fig.subplots_adjust(top=0.9)

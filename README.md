@@ -18,7 +18,8 @@ starts at white and then goes into the six corners of the CAM02-UCS Gamut.
 ![brightwheel2d](images/brightwheel2d.png)
 
 Blender designed colormaps are much smoother than the classical HSV colormap.
-The following comparison shows a complex polynomial that has poles.
+The following comparison shows a complex polynomial that has poles. HSV
+is shown in the top row as reference.
 
 ![poles and zeros function](images/poles_and_zeros.png)
 
