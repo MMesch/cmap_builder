@@ -15,16 +15,16 @@ def main():
     # some parameters
     npts_real = 400
     npts_imag = 400
-    realaxis = np.linspace(-3, 3, npts_real)
-    imagaxis = np.linspace(-3.,3., npts_imag)
+    realaxis = np.linspace(-4, 4, npts_real)
+    imagaxis = np.linspace(-3, 3, npts_imag)
     regrid, imgrid = np.meshgrid(realaxis, imagaxis)
 
     # put complex magnitude and argument in 2d array
     zgrid = regrid + 1j * imgrid
-    complex_sine = np.sin(regrid + 1j * imgrid)
+    # complex_sine = np.sin(regrid + 1j * imgrid)
     # no branch cut:
-    complex_function = (zgrid ** 2 - 1.) * (zgrid - 2 - 1j) ** 2 /\
-                       (zgrid ** 2 + 2. + 2.j)
+    complex_function = (zgrid ** 2 - 2.) * (zgrid - 1 - 1j) ** 2 /\
+                       (zgrid + 2j) / (zgrid**2 - 5 - 2j)
     # with branch cut:
     # complex_function = (zgrid ** 2 - 1.) * (zgrid - 2 - 1j) ** 2 \
     #                   / np.arcsin(zgrid ** 2 + 2. + 2.j)
@@ -43,31 +43,44 @@ def main():
     paths_cmap = glob.glob('colormaps/*.npy')
     ncmaps = len(paths_cmap) + 1  # one extra cmap for hsv
     fig, axes = plt.subplots(ncmaps, 2, figsize=(10, ncmaps * 3))
-    fig.suptitle(r'colormap comparison using complex function: $(z^2-1)(z -2-i)^2/(z^2+2+2i)$')
+    fig.suptitle('colormap comparison using complex polynomial:\n'
+                 r'$f(z) = \frac{(z^2-2)(z-(1+i))^2}{(z+2i)(z^2-(5+2i))}$',
+                 fontsize=16)
     for path_cmap, (col1, col2) in zip(paths_cmap, axes):
         dirname, fname = os.path.split(path_cmap)
         cmap = np.load(path_cmap).transpose((1, 0, 2))
-        #ihalf = int(cmap.shape[0] * 0.5)
-        #cmap = cmap[::-1]
-        #cmap = cmap[:ihalf]
-        col1.set(title='{}'.format(fname))
+        # ihalf = int(cmap.shape[0] * 0.5)
+        # cmap = cmap[::-1]
+        # cmap = cmap[:ihalf]
+        col1.set(ylabel='{}\nlog(|f|)'.format(fname),
+                 xlabel='arg(f)')
+        col2.set(ylabel='imaginary axis',
+                 xlabel='real axis')
 
         rgb_colors = cmap_file2d(data, cmap)
 
-        col1.imshow(cmap, aspect='auto')
-        col2.imshow(rgb_colors, aspect='auto')
+        col1.imshow(cmap, aspect='auto', origin='lower',
+                    extent=(-np.pi, np.pi, -drange, drange))
+        col2.imshow(rgb_colors, aspect='auto', extent=(-4, 4, -3, 3),
+                    origin='lower')
 
     # hsv colormap
     ax20, ax21 = axes[-1, 0], axes[-1, 1]
-    ax20.set(title='HSV colormap')
+    ax20.set(ylabel='{}\nlog(|f|)'.format('HSV colormap'),
+             xlabel='arg(f)')
+    ax21.set(ylabel='imaginary axis',
+             xlabel='real axis')
 
     xx, yy = np.meshgrid(np.linspace(0., 1., 100), np.linspace(0., 1., 100))
     cmap_grid = np.array([yy, xx])
     cmap = cmap_multidim_hsv(cmap_grid)
     cmap = np.roll(cmap, 48, axis=1)
     rgb_colors = cmap_file2d(data, cmap)
-    ax20.imshow(cmap, aspect='auto')
-    ax21.imshow(rgb_colors, aspect='auto')
+
+    ax20.imshow(cmap, aspect='auto', extent=(-np.pi, np.pi, -drange, drange),
+                origin='lower')
+    ax21.imshow(rgb_colors, aspect='auto', extent=(-4, 4, -3, 3),
+                origin='lower')
 
     fig.tight_layout(pad=0.5)
     fig.subplots_adjust(top=0.9)

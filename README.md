@@ -17,8 +17,8 @@ starts at white and then goes into the six corners of the CAM02-UCS Gamut.
 
 ![brightwheel2d](images/brightwheel2d.png)
 
-Blender designed colormaps are much smoother than the classical HSV colormap
-(bottom row) as the following comparison shows
+Blender designed colormaps are much smoother than the classical HSV colormap.
+The following comparison shows a complex polynomial that has poles.
 
 ![poles and zeros function](images/poles_and_zeros.png)
 
