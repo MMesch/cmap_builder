@@ -26,8 +26,7 @@ def main():
     complex_function = (zgrid ** 2 - 2.) * (zgrid - 1 - 1j) ** 2 /\
                        (zgrid + 2j) / (zgrid**2 - 5 - 2j)
     # with branch cut:
-    # complex_function = (zgrid ** 2 - 1.) * (zgrid - 2 - 1j) ** 2 \
-    #                   / np.arcsin(zgrid ** 2 + 2. + 2.j)
+    #complex_function = np.arcsin(zgrid)
 
     data = np.empty((2, npts_imag, npts_real))
     data[0] = np.log(np.abs(complex_function))

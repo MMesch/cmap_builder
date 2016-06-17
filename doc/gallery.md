@@ -18,8 +18,11 @@ remain round and don't become star-shaped or shifted towards darker colors
 like blue and red. At 0.5, the color surfaces can vary a in lightness to make
 use of strongy saturated colors.
 
-Wheel2d is a 2d colormap that goes from black to white with maximum saturated
+Newwheel2d is a 2d colormap that goes from black to white with maximum saturated
 colors around 0.5.
+![newwheel2d](../images/newwheel2d.png)
+
+Wheel2d is similar to Newwheel but saturates the colors a bit more
 ![wheel2d](../images/wheel2d.png)
 
 Darkwheel2d is a 2d colormap that goes from black to light and saturated colors.
