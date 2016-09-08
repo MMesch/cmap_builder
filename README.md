@@ -2,6 +2,23 @@
 a python package for 2d colormaps with an associated 
 blender colormap builder
 
+## Features
+* a growing set of carefully designed 2D colormaps
+* simple matplotlib style functions to plot data using the 2D colormaps
+* 2D colormap designer based on the 3D animation software blender
+
+## Example
+```
+from colormap2d import imshow2d
+import matplotlib.pyplot as plt
+import numpy as np
+
+data = np.random.normal(size=(2, 10, 10))
+
+imshow2d(data)
+plt.show()
+```
+
 ## Overview
 This python package provides functionality to for 2D colormaps.  2D colormaps
 can be used to visualise images of two parameters at the same time. Typical
