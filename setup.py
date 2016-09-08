@@ -125,6 +125,8 @@ metadata = dict(
     requires=INSTALL_REQUIRES,
     platforms='OS Independent',
     packages=['colormap2d'],
+    package_dir={'colormap2d': 'colormap2d'},
+    package_data={'colormap2d': ['colormaps/*']},
     classifiers=CLASSIFIERS
 )
 
