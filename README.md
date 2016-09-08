@@ -30,6 +30,7 @@ data = np.array([np.angle(complex_function),
 imshow2d(data, cmap2d='wheel')
 plt.show()
 ```
+![simple example](images/simple_example.png)
 
 ## Overview
 This python package provides functionality to for 2D colormaps.  2D colormaps
