@@ -39,7 +39,7 @@ def main():
     data[0] = norm0(data[0])
     data[1] = norm1(data[1])
 
-    paths_cmap = glob.glob('colormaps/*.npy')
+    paths_cmap = glob.glob('colormap2d/colormaps/*.npy')
     ncmaps = len(paths_cmap) + 1  # one extra cmap for hsv
     fig, axes = plt.subplots(ncmaps, 2, figsize=(10, ncmaps * 3))
     fig.suptitle('colormap comparison using complex polynomial:\n'

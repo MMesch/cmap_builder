@@ -31,15 +31,12 @@ def main():
     data[0] = norm0(data[0])
     data[1] = norm1(data[1])
 
-    paths_cmap = glob.glob('colormaps/*.npy')
+    paths_cmap = glob.glob('colormap2d/colormaps/*.npy')
     ncmaps = len(paths_cmap) + 1  # one extra cmap for hsv
     fig, axes = plt.subplots(ncmaps, 2, figsize=(10, ncmaps * 3))
     for path_cmap, (col1, col2) in zip(paths_cmap, axes):
         dirname, fname = os.path.split(path_cmap)
         cmap = np.load(path_cmap).transpose((1, 0, 2))
-        #ihalf = int(cmap.shape[0] * 0.5)
-        #cmap = cmap[::-1]
-        #cmap = cmap[:ihalf]
         col1.set(title='{}'.format(fname))
         col2.set(title='complex sine')
 

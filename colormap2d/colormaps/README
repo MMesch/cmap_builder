@@ -1,0 +1,2 @@
+These .npy files contain 2d matrices with rgba values. I.e. arrays with shape
+cmap2d.shape = (nwidth, nheight, 4)
