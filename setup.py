@@ -89,7 +89,7 @@ CLASSIFIERS = [
     'Environment :: Console',
     'Intended Audience :: Science/Research',
     'Intended Audience :: Developers',
-    'License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)'  # NOQA
+    'License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)',  # NOQA
     'Natural Language :: English',
     'Operating System :: OS Independent',
     'Programming Language :: Python',
