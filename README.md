@@ -10,6 +10,12 @@ frequency.
 * simple matplotlib style functions to plot data using the 2D colormaps
 * 2D colormap designer based on the 3D animation software blender
 
+## Installation
+* the module can be installed directly from github using:
+```
+pip install git+https://github.com/MMesch/cmap_builder.git
+```
+
 ## Example
 ```
 import numpy as np
