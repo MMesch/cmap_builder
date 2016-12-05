@@ -9,7 +9,7 @@ examples are:
 
 ## Features
 * a growing set of carefully designed 2D colormaps
-* simple matplotlib style functions to plot data using the 2D colormaps
+* matplotlib style python functions to plot data using the 2D colormaps
 * 2D colormap designer based on the 3D animation software blender
 
 ## Installation
