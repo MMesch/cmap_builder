@@ -1,7 +1,7 @@
 # colormap2d
-This python package provides functionality for 2D colormaps. 2D colormaps
-can be used to visualise images of two parameters at the same time. Typical
-examples are: 
+This python package provides a carefully designed set of 2D colormaps that live in the perceptually uniform colorspace CAM02-UCS (Luo et al., 2006; Smith et al., 2016). Functionality to use the colormaps with matplotlib is included, as well as scripts that can be used from the 3D animation software Blender to design them.
+
+2D colormaps are used to visualise images of two parameters at the same time, e.g.:
 * a complex function's magnitude and argument as a function of its real and imaginary part
 * a spatial map of windspeed and direction
 * a time-frequency image of a signals strength and phase (spectrogram)
