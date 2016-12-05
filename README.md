@@ -1,9 +1,11 @@
 # colormap2d
 This python package provides functionality for 2D colormaps. 2D colormaps
 can be used to visualise images of two parameters at the same time. Typical
-examples are: a complex function's magnitude and argument, windspeed and
-direction, a signals strength and phase (spectrogram), a signals energy and
-frequency.
+examples are: 
+* a complex function's magnitude and argument as a function of its real and imaginary part
+* a spatial map of windspeed and direction
+* a time-frequency image of a signals strength and phase (spectrogram)
+* a spatial map of seismic source energy and frequency.
 
 ## Features
 * a growing set of carefully designed 2D colormaps
@@ -11,7 +13,7 @@ frequency.
 * 2D colormap designer based on the 3D animation software blender
 
 ## Installation
-* the module can be installed directly from github using:
+The module can be installed directly from github using:
 ```
 pip install git+https://github.com/MMesch/cmap_builder.git
 ```
