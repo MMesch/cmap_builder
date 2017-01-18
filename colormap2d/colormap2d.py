@@ -11,7 +11,7 @@ from scipy.ndimage.interpolation import map_coordinates
 
 
 def data2d_to_rgb(data, cmap2d='brightwheel', huenorm=None, huevmin=None,
-                  huevmax=None,
+                  huevmax=None, fill_value=(1., 1., 1.),
                   lightnorm=None, lightvmin=None, lightvmax=None):
     """
     Map 2 parameter 2D data array to rgb values.
@@ -30,6 +30,7 @@ def data2d_to_rgb(data, cmap2d='brightwheel', huenorm=None, huevmin=None,
     :param huenorm: a plt.Normalize() instance that normalizes the hue values.
     :param huevmin: the minimum of the huevalues. Only used if huenorm=None.
     :param huevmax: the maximum of the huevalues. Only used if huenorm=None.
+    :param fill_value: e.g. (0., 0., 0.) for values that are not finite as nan
     :param lightnorm: a plt.Normalize() instance that normalizes the lightness
                       values.
     :param lightvmin: the minimum of the lightness values.
@@ -43,6 +44,8 @@ def data2d_to_rgb(data, cmap2d='brightwheel', huenorm=None, huevmin=None,
     # coordinates (hence the name 'idata')
     data_dim, nrows, ncols = data.shape
     idata = np.copy(data)
+    mask = np.all(np.isfinite(idata), axis=0)
+    idata[:, ~mask] = 0.
 
     # normalize data if required
     if huenorm is None:
@@ -80,6 +83,7 @@ def data2d_to_rgb(data, cmap2d='brightwheel', huenorm=None, huevmin=None,
     # assemble the values in a [3, nrows, ncols] array and transpose it
     # to [ncols, nrows, 3] which can be used by matplotlib imshow
     rgb = np.array([r, g, b])
+    rgb[:, ~mask] = np.array(fill_value)[:, None]
     rgb = rgb.reshape(3, nrows, ncols).transpose(1, 2, 0)
     return rgb
 
