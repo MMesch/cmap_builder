@@ -50,16 +50,16 @@ def data2d_to_rgb(data, cmap2d='brightwheel', huenorm=None, huevmin=None,
     # normalize data if required
     if huenorm is None:
         if huevmin is None:
-            huevmin = data[0].min()
+            huevmin = np.nanmin(data[0])
         if huevmax is None:
-            huevmax = data[0].max()
+            huevmax = np.nanmax(data[0])
         huenorm = plt.Normalize(huevmin, huevmax, clip=True)
 
     if lightnorm is None:
         if lightvmin is None:
-            lightvmin = data[1].min()
+            lightvmin = np.nanmin(data[1])
         if lightvmax is None:
-            lightvmax = data[1].max()
+            lightvmax = np.nanmax(data[1])
         lightnorm = plt.Normalize(lightvmin, lightvmax, clip=True)
 
     idata[0] = huenorm(idata[0])
